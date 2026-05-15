@@ -8,22 +8,27 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="fondo-artistico"></div>
 
-    <div class="fondo-artistico"></div>
-
-    <header class="header-blanco">
+    <nav class="nav-principal">
         <div class="logo">
-            <a href="index.html">
-                <img src="20260409t_8.57.21_1.png" alt="Logo de Sublimación" class="logo-img">
-            </a>
+            <img src="img/20260409t_8.57.21_1.png" alt="Two Ink Logo" style="height: 50px; width: auto;">
         </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="servicios.html" class="color-text">Servicios</a></li>
-            </ul>
-        </nav>
-    </header>
+        
+        <button class="menu-hamburguesa" aria-label="Abrir menú">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+        </button>
+
+        <ul class="nav-enlaces">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="servicios.html">Servicios</a></li>
+            <li><a href="index.html">Contacto</a></li>
+        </ul>
+    </nav>
 
     <section class="contenedor">
         <h1 class="titulo-seccion pop-in">Catálogo de <span class="color-text">Productos</span></h1>
