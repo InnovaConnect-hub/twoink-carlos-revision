@@ -60,15 +60,10 @@ body {
     transform: scale(1.05);
 }
 
-nav ul { display: flex; gap: 25px; list-style: none; }
-nav a { color: var(--texto); text-decoration: none; font-weight: 500; font-size: 1.1rem; transition: 0.3s; }
-nav a:hover { color: var(--acento); }
-
-/* Sección Inicio (Hero) */
 .hero {
     display: flex;
     align-items: center;
-    justify-content: center; /* Centramos el contenido */
+    justify-content: center; 
     min-height: 85vh;
     padding: 0 5%;
     text-align: center;
@@ -95,7 +90,6 @@ nav a:hover { color: var(--acento); }
     font-weight: 500;
 }
 
-/* Botones */
 .btn-colorido {
     display: inline-block;
     background: var(--texto);
@@ -117,7 +111,6 @@ nav a:hover { color: var(--acento); }
     box-shadow: 0 15px 25px rgba(255, 0, 255, 0.3);
 }
 
-/* Contenedores y Secciones */
 .contenedor {
     max-width: 1200px;
     margin: 0 auto;
@@ -131,7 +124,6 @@ nav a:hover { color: var(--acento); }
     color: var(--texto);
 }
 
-/* Tarjetas de Servicios */
 .grid-servicios {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -161,13 +153,12 @@ nav a:hover { color: var(--acento); }
 }
 
 .icono-servicio svg {
-    width: 55px; /* Tamaño del icono */
+    width: 55px;
     height: 55px;
-    stroke: var(--acento); /* Toma automáticamente tu color Magenta brillante */
+    stroke: var(--acento); 
     transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-/* Efecto súper dinámico: El icono gira ligeramente y crece cuando pasas el mouse por la tarjeta */
 .card:hover .icono-servicio svg {
     transform: scale(1.15) rotate(5deg);
 }
@@ -178,7 +169,6 @@ nav a:hover { color: var(--acento); }
     margin-bottom: 15px;
 }
 
-/* Formulario */
 .card-form {
     background: rgba(255, 255, 255, 0.9);
     padding: 40px;
@@ -207,7 +197,6 @@ input:focus, textarea:focus {
 
 .w-100 { width: 100%; }
 
-/* Botón WhatsApp */
 .whatsapp-btn {
     position: fixed;
     bottom: 30px;
@@ -228,7 +217,6 @@ input:focus, textarea:focus {
     transform: scale(1.1) rotate(-3deg);
 }
 
-/* Clases de Animación JS */
 .pop-in {
     opacity: 0;
     transform: scale(0.8) translateY(30px);
@@ -243,11 +231,7 @@ input:focus, textarea:focus {
 .delay-1 { transition-delay: 0.1s; }
 .delay-2 { transition-delay: 0.3s; }
 .delay-3 { transition-delay: 0.5s; }
-/* =========================================
-   ESTILOS DE LAS NUEVAS SECCIONES
-   ========================================= */
 
-/* Promoción */
 .promocion-banner {
     background: var(--texto);
     color: var(--blanco);
@@ -259,7 +243,6 @@ input:focus, textarea:focus {
     position: relative;
 }
 
-/* Sobre Nosotros */
 .nosotros-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -285,7 +268,6 @@ input:focus, textarea:focus {
     .nosotros-texto h2 { text-align: center !important; }
 }
 
-/* Cómo Funciona */
 .pasos-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -553,5 +535,94 @@ input:focus, textarea:focus {
     .footer-legal {
         flex-direction: column;
         text-align: center;
+    }
+}
+.nav-principal {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 15px 5%;
+    width: 100%; 
+    background: rgba(255, 255, 255, 0.95); 
+    position: sticky; 
+    top: 0;
+    left: 0;  /* Obliga a pegar al borde izquierdo */
+    right: 0; /* Obliga a pegar al borde derecho */
+    z-index: 1000;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05); 
+}
+
+.nav-enlaces {
+    display: flex;
+    list-style: none; 
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-enlaces li a {
+    color: var(--texto); 
+    text-decoration: none; 
+    font-weight: 500; 
+    font-size: 1.1rem; 
+    transition: 0.3s;
+}
+
+.nav-enlaces li a:hover {
+    color: var(--acento);
+}
+
+/* Ocultar el botón hamburguesa en la computadora */
+.menu-hamburguesa {
+    display: none; 
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1001; /* Siempre por encima del menú de cristal */
+}
+
+.menu-hamburguesa svg {
+    width: 35px;
+    height: 35px;
+    stroke: var(--texto); 
+}
+
+
+/* =========================================
+   MENÚ RESPONSIVO PARA CELULARES (Glassmorphism)
+   ========================================= */
+@media (max-width: 768px) {
+    
+    /* 1. Aparece el botón de 3 rayitas */
+    .menu-hamburguesa {
+        display: block; 
+    }
+
+    /* 2. Escondemos los enlaces fuera de la pantalla (Panel Lateral) */
+    .nav-enlaces {
+        position: fixed;
+        top: 0;
+        right: -100%; /* ESCONDIDO a la derecha */
+        width: 75%; 
+        height: 100vh; /* Alto completo de la pantalla */
+        background: rgba(255, 255, 255, 0.90);
+        backdrop-filter: blur(15px); /* Efecto cristal */
+        flex-direction: column; /* Lista hacia abajo */
+        justify-content: center;
+        align-items: center;
+        gap: 40px; 
+        transition: right 0.4s ease-in-out; /* Animación de entrada */
+        box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+    }
+
+    /* 3. Clase que activa JavaScript para meter el menú a la pantalla */
+    .nav-enlaces.activo {
+        right: 0; 
+    }
+
+    /* 4. Letras más grandes para poder tocarlas fácil con el dedo */
+    .nav-enlaces li a {
+        font-size: 1.5rem;
+        font-weight: 600;
     }
 }
